@@ -1,7 +1,6 @@
 // @flow strict
 import Link from "next/link";
 
-
 function Navbar() {
   return (
     <nav className="bg-transparent">
@@ -10,7 +9,7 @@ function Navbar() {
           <Link
             href="/"
             className=" text-[#16f2b3] text-3xl font-bold">
-            Shujaatali's Portfolio
+            Shujaatali&apos;s Portfolio
           </Link>
         </div>
 
