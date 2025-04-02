@@ -58,7 +58,7 @@ function ProjectCard({ project }) {
               </div>
               
               {/* Image component to show website preview */}
-              <div className="w-full h-[320px] relative">
+              <div className="w-full relative" style={{ paddingBottom: '56.25%' }}> {/* 16:9 aspect ratio */}
                 <Image
                   src={getProjectScreenshot()}
                   alt={`${project.name} website preview`}
@@ -66,7 +66,7 @@ function ProjectCard({ project }) {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   quality={90}
                   priority={true}
-                  className="object-cover object-top"
+                  className="object-contain"
                 />
               </div>
               
