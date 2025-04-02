@@ -1,22 +1,29 @@
 // @flow strict
+"use client"
 import { timeConverter } from '@/utils/time-converter';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsHeartFill } from 'react-icons/bs';
 import { FaCommentAlt } from 'react-icons/fa';
+import { useState } from 'react';
 
 function BlogCard({ blog }) {
+  const [imageError, setImageError] = useState(false);
 
   return (
     <div className="border border-[#1d293a] hover:border-[#464c6a] transition-all duration-500 bg-[#1b203e] rounded-lg relative group"
     >
       <div className="h-44 lg:h-52 w-auto cursor-pointer overflow-hidden rounded-t-lg">
         <Image
-          src={blog?.cover_image}
+          src={imageError ? '/png/placeholder.png' : blog?.cover_image}
           height={1080}
           width={1920}
-          alt=""
-          className='h-full w-full group-hover:scale-110 transition-all duration-300'
+          alt={blog.title || "Blog post image"}
+          className='h-full w-full group-hover:scale-110 transition-all duration-300 object-cover'
+          onError={() => setImageError(true)}
+          loading="lazy"
+          placeholder="blur"
+          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
         />
       </div>
       <div className="p-2 sm:p-3 flex flex-col">

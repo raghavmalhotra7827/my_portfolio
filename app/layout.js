@@ -10,12 +10,27 @@ import "./css/globals.scss";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Portfolio of Abu Said - Software Developer",
+  title: "Portfolio of Shujaatali - Full Stack Web Developer",
   description:
-    "This is the portfolio of Abu Said. I am a full stack developer and a self taught developer. I love to learn new things and I am always open to collaborating with others. I am a quick learner and I am always looking for new challenges.",
+    "This is the portfolio of Shujaatali. I am a Full Stack Web Developer with a passion for building web applications. I am a quick learner with a self-learning attitude and I am passionate about problem-solving.",
+  icons: {
+    icon: [
+      {
+        url: '/portfolio-icon.svg',
+        type: 'image/svg+xml',
+      },
+    ],
+    shortcut: '/portfolio-icon.svg',
+    apple: '/portfolio-icon.svg',
+  },
 };
 
 export default function RootLayout({ children }) {
+  // Only include GTM if a valid ID is provided
+  const gtmId = process.env.NEXT_PUBLIC_GTM && 
+                process.env.NEXT_PUBLIC_GTM !== "G-XXXXXXXXXX" ? 
+                process.env.NEXT_PUBLIC_GTM : null;
+  
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -26,8 +41,8 @@ export default function RootLayout({ children }) {
           <ScrollToTop />
         </main>
         <Footer />
+        {gtmId && <GoogleTagManager gtmId={gtmId} />}
       </body>
-      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
     </html>
   );
 }

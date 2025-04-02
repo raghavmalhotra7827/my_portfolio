@@ -1,39 +1,51 @@
 export const projectsData = [
     {
         id: 1,
-        name: 'AI Powered Financial App',
-        description: "Me and my team built an AI-powered financial mobile application. I have developed API using Express, Typescript, OpenAI, AWS, and MongoDB. Used OTP via AWS SES, Google, and Facebook for the authentication system. Built AI assistants using OpenAI's latest model and trained using our dataset. Voice messages are converted to text using AWS Transcribe. The app fetches data from Google Sheets and generates a PDF term sheet, sent via AWS SES.",
-        tools: ['Express', 'MongoDB', 'OpenAI API', 'AWS SES', 'AWS S3', 'Node Mailer', 'Joi', 'Puppeteer', 'EC2', 'PM2', 'Nginx'],
-        role: 'Backend Developer',
+        name: 'Video Streaming Site',
+        description: "Developed a modern video streaming platform with features similar to popular streaming services. Built with a responsive design that works seamlessly across desktop and mobile devices. Implemented secure user authentication, video categorization, personalized recommendations, and HD video playback. The platform includes search functionality, user profiles, and adaptive streaming for optimal viewing experience based on network conditions.",
+        tools: ['React', 'Node.js', 'Express', 'MongoDB', 'AWS S3', 'Cloudfront', 'Stripe', 'JWT', 'Redux', 'Tailwind CSS'],
+        role: 'Full Stack Developer',
         code: '',
-        demo: '',
+        demo: 'https://uploadview.com',
+        image: {
+            src: 'https://uploadview.com/og-image.png'
+        }
     },
     {
         id: 2,
-        name: 'Travel Agency App',
-        description: 'I have designed and developed a full-stack web app for 2Expedition, a travel agency in Armenia. I created the UI using NextJS, Typescript, MUI, TailwindCSS, Google Maps, Sun-Editor, and React Slick. The app supports multiple languages and currencies. I developed the API using NestJS, Typescript, MySQL, TypeORM, AWS, and Nodemailer. I deployed the front-end app to AWS Amplify and the back-end app to AWS EC2.',
-        tools: ['NextJS', 'Tailwind CSS', "Google Maps", "NestJS", "TypeScript", "MySQL", "AWS S3", "Sun-Editor", "Gmail Passkey"],
+        name: 'Digital Marketing Website',
+        description: "Developed a modern digital marketing platform with comprehensive social media management features. Built with a responsive design that works seamlessly across all devices. Implemented advanced analytics dashboard, campaign management, content scheduling, and performance tracking. The platform includes multi-platform integration, automated posting, and detailed reporting capabilities.",
+        tools: ['React', 'Node.js', 'Express', 'MongoDB', 'AWS S3', 'Redux', 'Tailwind CSS', 'Analytics API', 'Social Media APIs'],
         role: 'Full Stack Developer',
         code: '',
-        demo: '',
+        demo: 'https://www.hootsuite.com/',
+        image: {
+            src: '/image/hoodsuit.png'
+        }
     },
     {
         id: 3,
-        name: 'AI Powered Real Estate',
-        description: 'My team built an AI-based real estate app using Replicate API and OpenAI. We used Express, Typescript, OpenAI, Replicate, Stripe, and Mongoose to develop the API. We utilized NextJS, Formik, TailwindCSS, and other npm libraries for the UI. We have trained multiple AI assistants using the latest GPT model and integrated Replicate API for image processing. We added role-based auth, subscription plans, Cron job scheduling, and payment integration with Stripe.',
-        tools: ['React', 'Bootstrap', 'SCSS', 'Stripe', 'Express', 'TypeScript', 'MongoDB', 'Azure Blob', 'OpenAI API', 'Replicate AI', 'Cronjob', 'JWT'],
-        code: '',
+        name: 'Web Development Agency',
+        description: "Created a modern web development agency platform showcasing our services and portfolio. Built with a responsive design featuring interactive animations and seamless user experience. Implemented advanced project showcases, service descriptions, and client testimonials. The platform includes dynamic content management, contact forms, and detailed case studies of successful projects.",
+        tools: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Node.js', 'Express', 'MongoDB', 'AWS S3', 'Redux'],
         role: 'Full Stack Developer',
-        demo: '',
+        code: '',
+        demo: 'https://huemor.rocks/web-development-agency/',
+        image: {
+            src: '/image/huemor.png'
+        }
     },
     {
         id: 4,
-        name: 'Newsroom Management',
-        description: "My team and I developed a newspaper management dashboard application called Newsroom Management. As a front-end developer, I worked on creating the dashboard using NextJS, Material UI, Redux, Calendar, and other necessary npm libraries. We used React Redux to manage the application's state and React-hook-form and Sun Editor to handle forms.",
-        tools: ['NextJS', 'Material UI', 'Redux', 'Sun Editor', "Calendar"],
-        code: '',
-        demo: '',
+        name: 'EdTech Learning Platform',
+        description: "Developed a comprehensive online learning platform focused on web development education. Built with a responsive design that provides seamless access to programming courses, interactive lessons, and coding challenges. Features include curriculum tracking, project-based learning, and a supportive community forum. The platform offers both free and premium content with integrated progress tracking.",
+        tools: ['React', 'Node.js', 'Express', 'MongoDB', 'Redux', 'Tailwind CSS', 'Discord API', 'Git API'],
         role: 'Full Stack Developer',
+        code: '',
+        demo: 'https://www.theodinproject.com/',
+        image: {
+            src: '/image/odin.png'
+        }
     }
 ];
 

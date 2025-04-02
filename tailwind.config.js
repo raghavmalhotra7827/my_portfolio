@@ -23,13 +23,21 @@ module.exports = {
           "3xl": "5rem",
         },
       },
-
-      extend: {
-        screens: {
-          "4k": "1980px",
-        },
+      screens: {
+        "4k": "1980px",
       },
     },
   },
   plugins: [],
+  // Performance optimizations
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  safelist: [
+    // Add critical classes that might be created dynamically here
+    'opacity-0', 
+    'opacity-100', 
+    'visible', 
+    'invisible'
+  ]
 }

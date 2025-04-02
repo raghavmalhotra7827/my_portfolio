@@ -1,11 +1,27 @@
 "use client"
 
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 
-const GlowCard = ({ children , identifier}) => {
+const GlowCard = ({ children, identifier }) => {
+  // Throttle function to limit event handler execution
+  const throttle = useCallback((callback, delay = 100) => {
+    let lastCall = 0;
+    return function (...args) {
+      const now = Date.now();
+      if (now - lastCall < delay) {
+        return;
+      }
+      lastCall = now;
+      return callback(...args);
+    };
+  }, []);
+
   useEffect(() => {
     const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
+    if (!CONTAINER) return; // Ensure container exists
+
     const CARDS = document.querySelectorAll(`.glow-card-${identifier}`);
+    if (!CARDS.length) return; // Ensure cards exist
 
     const CONFIG = {
       proximity: 40,
@@ -16,7 +32,7 @@ const GlowCard = ({ children , identifier}) => {
       opacity: 0,
     };
 
-    const UPDATE = (event) => {
+    const UPDATE = throttle((event) => {
       for (const CARD of CARDS) {
         const CARD_BOUNDS = CARD.getBoundingClientRect();
 
@@ -45,9 +61,10 @@ const GlowCard = ({ children , identifier}) => {
 
         CARD.style.setProperty('--start', ANGLE + 90);
       }
-    };
+    }, 30); // Throttle to 30ms for smoother performance
 
-    document.body.addEventListener('pointermove', UPDATE);
+    // Use passive event listener for better performance
+    document.body.addEventListener('pointermove', UPDATE, { passive: true });
 
     const RESTYLE = () => {
       CONTAINER.style.setProperty('--gap', CONFIG.gap);
@@ -60,17 +77,16 @@ const GlowCard = ({ children , identifier}) => {
     };
 
     RESTYLE();
-    UPDATE();
-
+    
     // Cleanup event listener
     return () => {
       document.body.removeEventListener('pointermove', UPDATE);
     };
-  }, [identifier]);
+  }, [identifier, throttle]);
 
   return (
     <div className={`glow-container-${identifier} glow-container`}>
-      <article className={`glow-card glow-card-${identifier} h-fit cursor-pointer border border-[#2a2e5a] transition-all duration-300 relative bg-[#101123] text-gray-200 rounded-xl hover:border-transparent w-full`}>
+      <article className={`glow-card glow-card-${identifier} h-fit cursor-pointer border border-[#2a2e5a] transition-all duration-300 relative bg-[#101123] text-gray-200 rounded-xl hover:border-transparent w-full will-change-transform`}>
         <div className="glows"></div>
         {children}
       </article>
